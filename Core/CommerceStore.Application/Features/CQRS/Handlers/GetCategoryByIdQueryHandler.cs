@@ -23,6 +23,7 @@ namespace CommerceStore.Application.Features.CQRS.Handlers
             var values = await _repository.GetById(id);
             return new GetCategoryByIdQueryResult
             {
+                CategoryId=values.CategoryId,
                 CategoryName = values.CategoryName,
             };
         }

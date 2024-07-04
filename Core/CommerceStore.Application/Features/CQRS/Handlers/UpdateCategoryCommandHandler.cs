@@ -1,4 +1,4 @@
-﻿using CommerceStore.Application.Features.CQRS.Commands;
+﻿using CommerceStore.Application.Features.CQRS.Commands.Category;
 using CommerceStore.Application.Interfaces;
 using CommerceStore.Domain.Entities;
 using System;
@@ -19,8 +19,8 @@ namespace CommerceStore.Application.Features.CQRS.Handlers
         }
         public async Task Handle(UpdateCategoryCommand updateCategoryCommand)
         {
-            var value=await _repository.GetById(updateCategoryCommand.CategoryId);
-            value.CategoryName= updateCategoryCommand.CategoryName;
+            var value = await _repository.GetById(updateCategoryCommand.CategoryId);
+            value.CategoryName = updateCategoryCommand.CategoryName;
             await _repository.UpdateAsync(value);
         }
     }

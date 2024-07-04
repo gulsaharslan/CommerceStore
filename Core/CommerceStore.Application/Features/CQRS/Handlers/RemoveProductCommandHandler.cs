@@ -1,4 +1,5 @@
 ﻿using CommerceStore.Application.Features.CQRS.Commands.Category;
+using CommerceStore.Application.Features.CQRS.Commands.Product;
 using CommerceStore.Application.Interfaces;
 using CommerceStore.Domain.Entities;
 using System;
@@ -9,21 +10,18 @@ using System.Threading.Tasks;
 
 namespace CommerceStore.Application.Features.CQRS.Handlers
 {
-    public class CreateCategoryCommandHandler
+    public class RemoveProductCommandHandler
     {
-        private readonly IRepository<Category> _repository;
+        private readonly IRepository<Product> _repository;
 
-        public CreateCategoryCommandHandler(IRepository<Category> repository)
+        public RemoveProductCommandHandler(IRepository<Product> repository)
         {
             _repository = repository;
         }
 
-        public async Task Handle(CreateCategoryCommand createCategoryCommand)
+        public async Task Handle(RemoveProductCommand removeProductCommand)
         {
-            await _repository.CreateAsync(new Category
-            {
-                CategoryName = createCategoryCommand.CategoryName,
-            });
+            await _repository.DeleteAsync(removeProductCommand.ProductId);
         }
     }
 }

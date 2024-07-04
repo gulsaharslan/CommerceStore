@@ -9,22 +9,25 @@ using System.Threading.Tasks;
 
 namespace CommerceStore.Application.Features.CQRS.Handlers
 {
-    public class GetCategoryQueryHandler
+    public class GetProductQueryHandler
     {
-        private readonly IRepository<Category> _repository;
+        private readonly IRepository<Product> _repository;
 
-        public GetCategoryQueryHandler(IRepository<Category> repository)
+        public GetProductQueryHandler(IRepository<Product> repository)
         {
             _repository = repository;
         }
 
-        public async Task<List<GetCategoryQueryResult>> Handle()
+        public async Task<List<GetProductQueryResult>> Handler()
         {
             var values = await _repository.GetAllAsync();
-            return values.Select(x => new GetCategoryQueryResult
+            return values.Select(x => new GetProductQueryResult
             {
-                CategoryId = x.CategoryId,
-                CategoryName = x.CategoryName,
+                ProductId = x.ProductId,
+                ProductName= x.ProductName,
+                Price= x.Price,
+                Stock= x.Stock,
+                CategoryId= x.CategoryId,
             }).ToList();
         }
 

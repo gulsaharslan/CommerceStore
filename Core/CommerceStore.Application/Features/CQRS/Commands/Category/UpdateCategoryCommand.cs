@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CommerceStore.Application.Features.CQRS.Commands
+namespace CommerceStore.Application.Features.CQRS.Commands.Category
 {
-    public class CreateCategoryCommand
+    public class UpdateCategoryCommand
     {
+        public int CategoryId { get; set; }
         public string CategoryName { get; set; }
     }
 }

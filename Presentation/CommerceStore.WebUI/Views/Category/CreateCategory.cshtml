@@ -1,0 +1,17 @@
+﻿@model CommerceStore.Application.Features.CQRS.Commands.Category.CreateCategoryCommand
+
+@{
+    Layout = null;
+}
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container">
+    <br />
+    <form method="post">
+        <label>Kategori Adı</label>
+        <input type="text" asp-for="CategoryName" class="form-control" />
+        <br />
+        <button class="btn btn-primary">Ekle</button>
+    </form>
+</div>

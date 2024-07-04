@@ -1,0 +1,20 @@
+﻿@model CommerceStore.Application.Features.CQRS.Results.GetCategoryByIdQueryResult
+
+@{
+    Layout = null;
+}
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container">
+    <br />
+    <form method="post">
+        <label>Kategori Id</label>
+        <input type="text" asp-for="CategoryId" class="form-control" />
+        <label>Kategori Adı</label>
+        <input type="text" asp-for="CategoryName" class="form-control" />
+        <br />
+        <button class="btn btn-primary">Güncelle</button>
+    </form>
+</div>
+
